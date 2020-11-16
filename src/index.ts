@@ -1,12 +1,15 @@
-import { byDate,byDateSync } from './by';
+import {by, byDate, byDateSync, bySync} from './by';
 
 
 export const deoptimize = function deoptimize() {
     return {
         byDate,
-        byDateSync
+        byDateSync,
+        by,
+        bySync
     }
 };
 
 import {test} from "./teste";
+
 test();
