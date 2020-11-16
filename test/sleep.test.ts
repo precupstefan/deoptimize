@@ -1,5 +1,6 @@
 import { deoptimize } from "../src";
 import { sleep, sleepSync } from "../src/sleep";
+import { isCurrentTimeCloseTo } from "./helper";
 const time = 100;
 
 describe("sleep", () => {
@@ -7,9 +8,7 @@ describe("sleep", () => {
         expect.assertions(2);
         const end = new Date(Date.now() + time);
         return sleep(time).then(() => {
-            const now = Date.now();
-            expect(now).toBeGreaterThanOrEqual(end.getTime()-100);
-            expect(now).toBeLessThan(end.getTime()+100);
+            isCurrentTimeCloseTo(end);
         });
     });
 })
@@ -18,6 +17,6 @@ describe("sleepSync", () => {
     it(`wait ${time}ms`, () => {
         const end = new Date(Date.now() + time);
         sleepSync(time);
-        expect(Date.now()).toBe(end.getTime());
+        isCurrentTimeCloseTo(end);
     })
 });
