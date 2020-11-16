@@ -6,5 +6,10 @@ export const configuration = {
     intervalSize: 50, //50ms
     referenceDate: new Date(),
     intervals: () => configuration.maxSleep / configuration.intervalSize,
-    findInterval
+    findInterval: (date: Date): number => {
+        const duration = date.getTime() - configuration.referenceDate.getTime();
+        const period = duration/ configuration.intervals();
+        const interval = (date.getTime()-Date.now())/period;
+        return Math.floor(interval);
+    }
 }
