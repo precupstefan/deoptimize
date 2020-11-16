@@ -9,7 +9,3 @@ export const deoptimize = function deoptimize() {
         bySync
     }
 };
-
-import {test} from "./teste";
-
-test();
