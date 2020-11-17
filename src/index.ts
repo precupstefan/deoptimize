@@ -1,12 +1,5 @@
-import {by, byDate, byDateSync, byHttpRequest, bySync} from './by';
-
+import * as byFunctions from "./by";
 
 export const deoptimize = function deoptimize() {
-    return {
-        byDate,
-        byDateSync,
-        by,
-        bySync,
-        byHttpRequest
-    };
+    return byFunctions;
 };
