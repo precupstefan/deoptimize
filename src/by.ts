@@ -25,7 +25,7 @@ export function bySync(factor: number): void {
 
 export function byHttpRequest(config: AxiosRequestConfig,
                               validationFunction: (data: AxiosResponse) => number,
-                              error: (data: AxiosError) => number): Promise<void> {
+                              error?: (data: AxiosError) => number): Promise<void> {
     return axios(config).then((response) => {
         const factor = validationFunction(response);
         const sleepTime = configuration.getFactoredTime(factor);
