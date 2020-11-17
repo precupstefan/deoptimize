@@ -1,5 +1,5 @@
 import {sleep, sleepSync} from './sleep';
-import {computeSleepTimeFromDate} from './util';
+import {computeSleepTimeFromDate, getRandomInt, isLucky} from './util';
 import {configuration} from "./configuration";
 import axios, {AxiosError, AxiosRequestConfig, AxiosResponse} from 'axios';
 
@@ -41,3 +41,21 @@ export function byHttpRequest(config: AxiosRequestConfig,
     );
 }
 
+
+export function byChance(chance: number, scale: number = 100): Promise<void> {
+    const sleepTime = isLucky(chance, scale) ? configuration.maxSleep : 0;
+    return sleep(sleepTime);
+}
+
+export function byChanceSync(chance: number, scale: number = 100): void {
+    const sleepTime = isLucky(chance, scale) ? configuration.maxSleep : 0;
+    return sleepSync(sleepTime);
+}
+
+export function byRussianRoulette(choice: number = 3): Promise<void> {
+    return byChance(choice, 6);
+}
+
+export function byRussianRouletteSync(choice: number = 3): void {
+    return byChanceSync(choice, 6);
+}
