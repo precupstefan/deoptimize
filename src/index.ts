@@ -1,4 +1,4 @@
-import {by, byDate, byDateSync, bySync} from './by';
+import {by, byDate, byDateSync, byHttpRequest, bySync} from './by';
 
 
 export const deoptimize = function deoptimize() {
@@ -6,6 +6,7 @@ export const deoptimize = function deoptimize() {
         byDate,
         byDateSync,
         by,
-        bySync
-    }
+        bySync,
+        byHttpRequest
+    };
 };

@@ -8,8 +8,9 @@ export const configuration = {
     intervals: () => configuration.maxSleep / configuration.intervalSize,
     findInterval: (date: Date): number => {
         const duration = date.getTime() - configuration.referenceDate.getTime();
-        const period = duration/ configuration.intervals();
-        const interval = (date.getTime()-Date.now())/period;
+        const period = duration / configuration.intervals();
+        const interval = (date.getTime() - Date.now()) / period;
         return Math.floor(interval);
-    }
+    },
+    getFactoredTime: (factor: number) => configuration.intervalSize * factor,
 }
