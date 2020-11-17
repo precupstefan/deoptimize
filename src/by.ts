@@ -14,12 +14,12 @@ export function byDateSync(date: Date): void {
 }
 
 export function by(factor: number): Promise<void> {
-    const sleepTime = factor * configuration.intervalSize;
+    const sleepTime = configuration.getFactoredTime(factor);
     return sleep(sleepTime);
 }
 
 export function bySync(factor: number): void {
-    const sleepTime = factor * configuration.intervalSize;
+    const sleepTime = configuration.getFactoredTime(factor);
     sleepSync(sleepTime);
 }
 

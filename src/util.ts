@@ -7,7 +7,6 @@ export function computeSleepTimeFromDate(date: Date): number{
 
     const interval = configuration.findInterval(date);
     const time = configuration.maxSleep-interval*configuration.intervalSize;
-    console.log(time)
     return time;
 }
 
