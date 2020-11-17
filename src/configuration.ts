@@ -12,5 +12,5 @@ export const configuration = {
         const interval = (date.getTime() - Date.now()) / period;
         return Math.floor(interval);
     },
-    getFactoredTime: (factor: number) => configuration.intervalSize * factor,
+    getFactoredTime: (factor: number) => configuration.intervalSize * Math.round(factor),
 }

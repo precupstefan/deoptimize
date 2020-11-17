@@ -31,3 +31,17 @@ export function isLucky(chance: number, scale: number) {
     scale = Math.floor(scale);
     return chance == getRandomInt(scale);
 }
+
+export function getSleepTimeFromFunction(fn: () => number | boolean): number {
+    const result = fn();
+    let sleepTime = 0;
+    if (typeof result == "boolean") {
+        sleepTime = configuration.maxSleep;
+    } else {
+        if (result < 0) {
+            throw new RangeError("Value must be greater than 0");
+        }
+        sleepTime = configuration.getFactoredTime(result);
+    }
+    return sleepTime
+}
