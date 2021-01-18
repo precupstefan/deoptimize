@@ -1,9 +1,11 @@
-import {byDateSync} from "./by";
+// import {byDateSync} from "./by";
+
+import {deoptimize} from "./index";
 
 export function test() {
     console.log("Ceva");
     const start = new Date(Date.now() + 1000);
-    byDateSync(start);
+    deoptimize().by.
     const end = Date.now();
     console.log(end - start.getTime())
 }

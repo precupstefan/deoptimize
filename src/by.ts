@@ -69,3 +69,16 @@ export function byFunctionSync(fn: () => number | boolean): void {
     const sleepTime = getSleepTimeFromFunction(fn);
     return sleepSync(sleepTime);
 }
+
+// ideas
+/*
+
+    ##TIME BASED
+    byDayOfWeek
+    byHourOfDay
+    byMonth
+    byDay
+
+
+    ##UNTIL
+ */
